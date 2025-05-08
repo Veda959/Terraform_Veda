@@ -30,6 +30,30 @@ Provision a scalable and highly available web server infrastructure in AWS using
 
 - AWS account with sufficient permissions (EC2, VPC, ELB, S3, IAM)
 
+
+# ✅ Architecture Diagram:
+
++---------------------+       +---------------------+                     ![ChatGPT Image May 8, 2025, 04_24_37 PM](https://github.com/user-attachments/assets/6bc5b66e-6f6a-45b7-a936-7943e8c93b2c)
+
+|                     |       |                     |
+|  Auto Scaling Group |       |      S3 Bucket      |
+|                     |       |                     |
+|  +---------------+  |       |  +---------------+  |
+|  |   EC2 Instance|  |       |  |  Text Document|  |
+|  +---------------+  |       |  +---------------+  |
+|                     |       |                     |
++---------------------+       +---------------------+
+         |                              |
+         |                              |
+         v                              v
++---------------------+       +---------------------+
+|                     |       |                     |
+|     Launch         |       |    Terraform         |
+|  Configuration     |       |    Configuration     |
+|                     |       |                     |
++---------------------+       +---------------------+
+
+
 # 🧾 Variables Used
 
 You should define these in a **variables.tf** or use a **terraform.tfvars** file:
