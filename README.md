@@ -155,6 +155,7 @@ terraform destroy
 Terraform_Veda/
 ├── main.tf              # All infrastructure resources
 ├── variables.tf         # Input variable declarations
+├── providers.tf         # The region of the Infrastructure
 ├── terraform.tfvars     # Values for input variables (optional)
 ├── outputs.tf           # (Optional) Outputs like ALB DNS, instance IPs
 └── README.md            # Project documentation
