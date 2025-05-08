@@ -44,7 +44,6 @@ This Terraform project provisions a complete AWS infrastructure including:
 | `provider.tf`  | Defines AWS provider and region |
 | `variables.tf` | Input variables used throughout the config |
 | `outputs.tf`   | Outputs like NLB DNS or instance IPs |
-| `userdata.sh`  | Script run on EC2 launch to install Apache or Nginx |
 | `.gitignore`   | Ignores sensitive or unnecessary files |
 | `README.md`    | Documentation for the project |
 
