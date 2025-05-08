@@ -8,17 +8,17 @@ Provision a scalable and highly available web server infrastructure in AWS using
 
 - A Virtual Private Cloud (VPC) with public subnets
 
-Internet access via an Internet Gateway
+- Internet access via an Internet Gateway
 
-Launch Template for EC2 instances running a simple web server
+- Launch Template for EC2 instances running a simple web server
 
-Auto Scaling Group across two Availability Zones
+- Auto Scaling Group across two Availability Zones
 
-Network Load Balancer (NLB)
+- Network Load Balancer (NLB)
 
-Secure access via Security Groups
+- Secure access via Security Groups
 
-S3 bucket to store files (e.g., demo file)
+- S3 bucket to store files (e.g., demo file)
 
 📦 Requirements
 Terraform (>= 1.0)
