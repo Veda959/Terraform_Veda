@@ -90,8 +90,7 @@ terraform plan
 # Apply and create resources
 terraform apply
 
-
-## ⚙️ To destroy everything
+# To destroy everything
 terraform destroy
 
 
