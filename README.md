@@ -93,6 +93,8 @@ terraform apply
 # To destroy everything
 terraform destroy
 
+---
+
 ## ⚙️ Commands to Deploy
 ## 📤 Outputs
 After deployment, Terraform shows:
