@@ -20,18 +20,20 @@ Provision a scalable and highly available web server infrastructure in AWS using
 
 - S3 bucket to store files (e.g., demo file)
 
-📦 Requirements
-Terraform (>= 1.0)
+# 📦 Requirements
 
-AWS CLI configured with valid credentials
+- Terraform (>= 1.0)
 
-Git (for version control)
+- AWS CLI configured with valid credentials
 
-AWS account with sufficient permissions (EC2, VPC, ELB, S3, IAM)
+- Git (for version control)
 
-🧾 Variables Used
-You should define these in a variables.tf or use a terraform.tfvars file:
+- AWS account with sufficient permissions (EC2, VPC, ELB, S3, IAM)
 
+# 🧾 Variables Used
+
+You should define these in a **variables.tf** or use a **terraform.tfvars** file:
+```
 variable "aws_region" {
   default = "us-east-1"
 }
@@ -49,7 +51,10 @@ variable "key_name" {
   description = "SSH key pair name"
   type        = string
 }
-📁 Modules and Resources Breakdown
+```
+
+# 📁 Modules and Resources Breakdown
+
 1. VPC and Networking
 aws_vpc.main: Creates the main VPC
 
