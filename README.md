@@ -22,25 +22,7 @@ Provision a scalable and highly available web server infrastructure in AWS using
 
 # Basic Plan:
 
-+---------------------+       +---------------------+
-
-|                     |       |                     |
-|  Auto Scaling Group |       |      S3 Bucket      |
-|                     |       |                     |
-|  +---------------+  |       |  +---------------+  |
-|  |   EC2 Instance|  |       |  |  Text Document|  |
-|  +---------------+  |       |  +---------------+  |
-|                     |       |                     |
-+---------------------+       +---------------------+
-         |                              |
-         |                              |
-         v                              v
-+---------------------+       +---------------------+
-|                     |       |                     |
-|     Launch         |       |    Terraform         |
-|  Configuration     |       |    Configuration     |
-|                     |       |                     |
-+---------------------+       +---------------------+
+![image](https://github.com/user-attachments/assets/0bbb62ee-b495-4237-861d-45eaf5d60668)
 
 
 # 📦 Requirements
