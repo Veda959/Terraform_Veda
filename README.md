@@ -95,19 +95,19 @@ terraform apply
 terraform destroy
 
 
-📤 Outputs
+## 📤 Outputs
 After deployment, Terraform shows:
 
 NLB DNS name → Access this in the browser to see if EC2 is responding.
 
 EC2 public IPs (if needed)
 
-🔐 Security
+## 🔐 Security
 Security Group allows HTTP (80) from the internet to EC2 via NLB.
 
 Only SSH from your IP (optional).
 
-🚨 Clean Up
+## 🚨 Clean Up
 To avoid AWS charges, destroy infrastructure after testing:
 terraform destroy
 
