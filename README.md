@@ -55,42 +55,50 @@ variable "key_name" {
 
 # 📁 Modules and Resources Breakdown
 
-1. VPC and Networking
-aws_vpc.main: Creates the main VPC
+## 1. VPC and Networking
 
-aws_subnet.subnet_a, subnet_b: Two public subnets in different AZs
+- **aws_vpc.main**: Creates the main VPC
 
-aws_internet_gateway.igw: Provides internet access
+- **aws_subnet.subnet_a, subnet_b**: Two public subnets in different AZs
 
-aws_route_table.public + associations: Routes outbound traffic through IGW
+- **aws_internet_gateway.igw**: Provides internet access
 
-2. Security
-aws_security_group.instance_sg: Allows inbound SSH and HTTP, outbound all
+- **aws_route_table.public + associations**: Routes outbound traffic through IGW
 
-3. Compute
-aws_launch_template.web: Defines EC2 launch config with user data to install Apache and serve a message
+## 2. Security
 
-aws_autoscaling_group.web_asg: Manages EC2 instances across AZs
+- **aws_security_group.instance_sg**: Allows inbound SSH and HTTP, outbound all
 
-4. Load Balancer
-aws_lb.nlb: Network Load Balancer
+## 3. Compute
 
-aws_lb_target_group.web: Target group for EC2 instances
+- **aws_launch_template.web**: Defines EC2 launch config with user data to install Apache and serve a message
 
-aws_lb_listener.web: Forwards traffic from NLB to target group
+- **aws_autoscaling_group.web_asg**: Manages EC2 instances across AZs
 
-5. S3
-aws_s3_bucket.veda_bucket: S3 bucket for demo use
+## 4. Load Balancer
 
-aws_s3_object.demo_file: Uploads a sample file to the bucket
+- **aws_lb.nlb**: Network Load Balancer
 
-random_id.bucket_suffix: Ensures bucket name uniqueness
+- **aws_lb_target_group.web**: Target group for EC2 instances
 
-🛠️ How to Use
-1. Clone the repository
+- **aws_lb_listener.web**: Forwards traffic from NLB to target group
 
+## 5. S3
+
+- **aws_s3_bucket.veda_bucket**: S3 bucket for demo use
+
+- **aws_s3_object.demo_file**: Uploads a sample file to the bucket
+
+- **random_id.bucket_suffix**: Ensures bucket name uniqueness
+
+# 🛠️ How to Use
+
+## 1. Clone the repository
+
+```
 git clone https://github.com/Veda959/Terraform_Veda.git
 cd Terraform_Veda
+```
 
 2. Configure AWS credentials (if not done)
 
