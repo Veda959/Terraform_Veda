@@ -6,7 +6,7 @@ This project automates the deployment of a basic web application infrastructure 
 
 Provision a scalable and highly available web server infrastructure in AWS using Terraform, with the following components:
 
-**A Virtual Private Cloud (VPC) with public subnets**
+- **A Virtual Private Cloud (VPC) with public subnets**
 
 Internet access via an Internet Gateway
 
