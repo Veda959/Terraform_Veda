@@ -20,20 +20,9 @@ Provision a scalable and highly available web server infrastructure in AWS using
 
 - S3 bucket to store files (e.g., demo file)
 
-# 📦 Requirements
+# Basic Plan:
 
-- Terraform (>= 1.0)
-
-- AWS CLI configured with valid credentials
-
-- Git (for version control)
-
-- AWS account with sufficient permissions (EC2, VPC, ELB, S3, IAM)
-
-
-# ✅ Architecture Diagram:
-
-+---------------------+       +---------------------+                     ![ChatGPT Image May 8, 2025, 04_24_37 PM](https://github.com/user-attachments/assets/6bc5b66e-6f6a-45b7-a936-7943e8c93b2c)
++---------------------+       +---------------------+
 
 |                     |       |                     |
 |  Auto Scaling Group |       |      S3 Bucket      |
@@ -52,6 +41,22 @@ Provision a scalable and highly available web server infrastructure in AWS using
 |  Configuration     |       |    Configuration     |
 |                     |       |                     |
 +---------------------+       +---------------------+
+
+
+# 📦 Requirements
+
+- Terraform (>= 1.0)
+
+- AWS CLI configured with valid credentials
+
+- Git (for version control)
+
+- AWS account with sufficient permissions (EC2, VPC, ELB, S3, IAM)
+
+
+# ✅ Architecture Diagram:
+
+![ChatGPT Image May 8, 2025, 04_24_37 PM](https://github.com/user-attachments/assets/e9181700-e627-4ca7-9818-d27935783fb4)
 
 
 # 🧾 Variables Used
