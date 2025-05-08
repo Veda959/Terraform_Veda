@@ -138,3 +138,26 @@ resource "aws_autoscaling_group" "web_asg" {
     propagate_at_launch = true
   }
 }
+resource "random_id" "bucket_suffix" {
+  byte_length = 4
+}
+
+  # S3 Bucket
+resource "aws_s3_bucket" "veda_bucket" {
+  bucket = "veda-s3-bucket-${random_id.bucket_suffix.hex}"  # Makes name unique
+
+  tags = {
+    Name        = "VedaBucket"
+    Environment = "Dev"
+  }
+}
+
+
+# S3 Bucket Object (demo-file)
+resource "aws_s3_object" "demo_file" {
+  bucket  = aws_s3_bucket.veda_bucket.bucket
+  key     = "demo-file.txt"
+  content = "This is a sample text file created by Terraform."
+  acl     = "private"
+}
+
