@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# Log all output for troubleshooting
+exec > /var/log/userdata1.log 2>&1
+set -x
+
+# Update and install packages
 apt update
 apt install -y apache2
 
@@ -10,6 +16,9 @@ apt install -y awscli
 
 # Download the images from S3 bucket
 #aws s3 cp s3://myterraformprojectbucket2023/project.webp /var/www/html/project.png --acl public-read
+
+# Create the directory for the application
+mkdir -p /var/www/html/app1
 
 # Create a simple HTML file with the portfolio content and display the images
 cat <<EOF > /var/www/html/app2/index.html
