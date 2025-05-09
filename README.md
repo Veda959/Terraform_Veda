@@ -1,3 +1,4 @@
+# Main Project
 # 🚀 Terraform AWS Infrastructure Project
 
 This project automates the deployment of a basic web application infrastructure on AWS using Terraform. It includes setting up a VPC, public subnets, route tables, a launch template, an Auto Scaling Group, a Network Load Balancer, and an S3 bucket with a sample object.
