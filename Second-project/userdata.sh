@@ -12,7 +12,7 @@ apt install -y awscli
 #aws s3 cp s3://myterraformprojectbucket2023/project.webp /var/www/html/project.png --acl public-read
 
 # Create a simple HTML file with the portfolio content and display the images
-cat <<EOF > /var/www/html/index.html
+cat <<EOF > /var/www/html/app1/index.html
 <!DOCTYPE html>
 <html>
 <head>
