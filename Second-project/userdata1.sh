@@ -19,12 +19,13 @@ cat <<EOF > /var/www/html/app2/index.html
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Portfolio - App2</title>
+  <title>My Portfolio</title>
   <style>
+    /* Add animation and styling for the text */
     @keyframes colorChange {
-      0% { color: blue; }
-      50% { color: orange; }
-      100% { color: purple; }
+      0% { color: red; }
+      50% { color: green; }
+      100% { color: blue; }
     }
     h1 {
       animation: colorChange 2s infinite;
@@ -32,9 +33,10 @@ cat <<EOF > /var/www/html/app2/index.html
   </style>
 </head>
 <body>
-  <h1>Terraform Project Server 2</h1>
-  <h2>Instance ID: <span style="color:blue">$INSTANCE_ID</span></h2>
-  <p>This is App2, served by Abhishek Veeramalla's Channel</p>
+  <h1>Terraform Project Server 1</h1>
+  <h2>Instance ID: <span style="color:green">$INSTANCE_ID</span></h2>
+  <p>Welcome to CloudChamp's Channel</p>
+  
 </body>
 </html>
 EOF
