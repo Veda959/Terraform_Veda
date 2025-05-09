@@ -1,37 +1,30 @@
 #!/bin/bash
 
 # Log all output for troubleshooting
-exec > /var/log/userdata1.log 2>&1
+exec > /var/log/userdata.log 2>&1
 set -x
 
 # Update and install packages
-sudo apt update
-sudo apt install -y apache2
+sudo apt-get update -y
+sudo apt-get install -y apache2 awscli
 
-# Get the instance ID using the instance metadata
+# Get the instance ID
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
-
-# Install the AWS CLI
-sudo apt install -y awscli
-
-# Download the images from S3 bucket
-#aws s3 cp s3://myterraformprojectbucket2023/project.webp /var/www/html/project.png --acl public-read
 
 # Create the directory for the application
 sudo mkdir -p /var/www/html/app2
 
-# Create a simple HTML file with the portfolio content and display the images
+# Create HTML content
 cat <<EOF > /var/www/html/app2/index.html
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Portfolio</title>
+  <title>My Portfolio - App2</title>
   <style>
-    /* Add animation and styling for the text */
     @keyframes colorChange {
-      0% { color: red; }
-      50% { color: green; }
-      100% { color: blue; }
+      0% { color: blue; }
+      50% { color: orange; }
+      100% { color: purple; }
     }
     h1 {
       animation: colorChange 2s infinite;
@@ -39,14 +32,13 @@ cat <<EOF > /var/www/html/app2/index.html
   </style>
 </head>
 <body>
-  <h1>Terraform Project Server 1</h1>
-  <h2>Instance ID: <span style="color:green">$INSTANCE_ID</span></h2>
-  <p>Welcome to CloudChamp's Channel</p>
-  
+  <h1>Terraform Project Server 2</h1>
+  <h2>Instance ID: <span style="color:blue">$INSTANCE_ID</span></h2>
+  <p>This is App2, served by Abhishek Veeramalla's Channel</p>
 </body>
 </html>
 EOF
 
-# Start Apache and enable it on boot
+# Start and enable Apache
 sudo systemctl start apache2
 sudo systemctl enable apache2
