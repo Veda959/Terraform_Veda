@@ -140,16 +140,29 @@ resource "aws_lb_target_group_attachment" "attach2" {
   port             = 80
 }
 
-resource "aws_lb_listener" "listener1" {
+resource "aws_lb_listener" "listener" {
   load_balancer_arn = aws_lb.myalb.arn
   port              = 80
   protocol          = "HTTP"
-  priority          = 10
 
+  default action {
+     type = "fixed-response"
+
+     fixed-response {
+      content_type = "text/plain"
+      status_code  = "404"
+      message_body = "Not Found"
+      }
+   }
+}
+
+resource "aws_lb_listener_rule" "rule_app1" {
+ listener_arn = aws_lb_listener.listener.arn
+ priority = 10
   action {
-    target_group_arn = aws_lb_target_group.tg1.arn
     type             = "forward"
-  }
+    target_group_arn = aws_lb_target_group.tg1.arn
+      }
   condition {
     path pattern {
        values = ["/app1/*"]
@@ -157,15 +170,14 @@ resource "aws_lb_listener" "listener1" {
    }
 }
 
-resource "aws_lb_listener" "listener2" {
-  load_balancer_arn = aws_lb.myalb.arn
-  port              = 80
-  protocol          = "HTTP"
+resource "aws_lb_listener_rule" "rule_app2" {
+  listener_arn = aws_lb_listener.listener.arn
   priority          = 20
 
   action {
-    target_group_arn = aws_lb_target_group.tg2.arn
     type             = "forward"
+    target_group_arn = aws_lb_target_group.tg2.arn
+    
   }
   condition {
     path pattern {
@@ -174,6 +186,19 @@ resource "aws_lb_listener" "listener2" {
    }
 }
 
-output "loadbalancerdns" {
-  value = aws_lb.myalb.dns_name
+
+output "alb_dns_name" {
+  description = "Public DNS of the ALB"
+  value       = aws_lb.myalb.dns_name
 }
+
+output "app1_url" {
+  description = "URL to access App1"
+  value       = "http://${aws_lb.myalb.dns_name}/app1"
+}
+
+output "app2_url" {
+  description = "URL to access App2"
+  value       = "http://${aws_lb.myalb.dns_name}/app2"
+}
+
