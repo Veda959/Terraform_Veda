@@ -5,20 +5,20 @@ exec > /var/log/userdata1.log 2>&1
 set -x
 
 # Update and install packages
-apt update
-apt install -y apache2
+sudo apt update
+sudo apt install -y apache2
 
 # Get the instance ID using the instance metadata
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 
 # Install the AWS CLI
-apt install -y awscli
+sudo apt install -y awscli
 
 # Download the images from S3 bucket
 #aws s3 cp s3://myterraformprojectbucket2023/project.webp /var/www/html/project.png --acl public-read
 
 # Create the directory for the application
-mkdir -p /var/www/html/app1
+sudo mkdir -p /var/www/html/app2
 
 # Create a simple HTML file with the portfolio content and display the images
 cat <<EOF > /var/www/html/app2/index.html
@@ -48,5 +48,5 @@ cat <<EOF > /var/www/html/app2/index.html
 EOF
 
 # Start Apache and enable it on boot
-systemctl start apache2
-systemctl enable apache2
+sudo systemctl start apache2
+sudo systemctl enable apache2
