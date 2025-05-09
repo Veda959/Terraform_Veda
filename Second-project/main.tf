@@ -164,7 +164,7 @@ resource "aws_lb_listener_rule" "rule_app1" {
     target_group_arn = aws_lb_target_group.tg1.arn
       }
   condition {
-    path pattern {
+    path_pattern {
        values = ["/app1/*"]
       }
    }
@@ -180,7 +180,7 @@ resource "aws_lb_listener_rule" "rule_app2" {
     
   }
   condition {
-    path pattern {
+    path_pattern {
        values = ["/app2/*"]
       }
    }
