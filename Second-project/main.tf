@@ -104,8 +104,20 @@ resource "aws_lb" "myalb" {
   }
 }
 
-resource "aws_lb_target_group" "tg" {
-  name     = "myTG"
+resource "aws_lb_target_group" "tg1" {
+  name     = "myTG1"
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = aws_vpc.myvpc.id
+
+  health_check {
+    path = "/"
+    port = "traffic-port"
+  }
+}
+
+resource "aws_lb_target_group" "tg2" {
+  name     = "myTG2"
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.myvpc.id
@@ -117,26 +129,49 @@ resource "aws_lb_target_group" "tg" {
 }
 
 resource "aws_lb_target_group_attachment" "attach1" {
-  target_group_arn = aws_lb_target_group.tg.arn
+  target_group_arn = aws_lb_target_group.tg1.arn
   target_id        = aws_instance.webserver1.id
   port             = 80
 }
 
 resource "aws_lb_target_group_attachment" "attach2" {
-  target_group_arn = aws_lb_target_group.tg.arn
+  target_group_arn = aws_lb_target_group.tg2.arn
   target_id        = aws_instance.webserver2.id
   port             = 80
 }
 
-resource "aws_lb_listener" "listener" {
+resource "aws_lb_listener" "listener1" {
   load_balancer_arn = aws_lb.myalb.arn
   port              = 80
   protocol          = "HTTP"
+  priority          = 10
 
-  default_action {
-    target_group_arn = aws_lb_target_group.tg.arn
+  action {
+    target_group_arn = aws_lb_target_group.tg1.arn
     type             = "forward"
   }
+  condition {
+    path pattern {
+       values = ["/app1/*"]
+      }
+   }
+}
+
+resource "aws_lb_listener" "listener2" {
+  load_balancer_arn = aws_lb.myalb.arn
+  port              = 80
+  protocol          = "HTTP"
+  priority          = 20
+
+  action {
+    target_group_arn = aws_lb_target_group.tg2.arn
+    type             = "forward"
+  }
+  condition {
+    path pattern {
+       values = ["/app2/*"]
+      }
+   }
 }
 
 output "loadbalancerdns" {
