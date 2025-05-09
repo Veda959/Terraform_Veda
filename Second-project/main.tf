@@ -145,10 +145,10 @@ resource "aws_lb_listener" "listener" {
   port              = 80
   protocol          = "HTTP"
 
-  default action {
+  default_action {
      type = "fixed-response"
 
-     fixed-response {
+     fixed_response {
       content_type = "text/plain"
       status_code  = "404"
       message_body = "Not Found"
