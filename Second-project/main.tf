@@ -111,8 +111,14 @@ resource "aws_lb_target_group" "tg1" {
   vpc_id   = aws_vpc.myvpc.id
 
   health_check {
-    path = "/"
+    path = "/app1/"
     port = "traffic-port"
+    protocol            = "HTTP"
+    matcher             = "200"
+    interval            = 30
+    timeout             = 5
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
   }
 }
 
@@ -123,8 +129,14 @@ resource "aws_lb_target_group" "tg2" {
   vpc_id   = aws_vpc.myvpc.id
 
   health_check {
-    path = "/"
+    path = "/app2/"
     port = "traffic-port"
+    protocol            = "HTTP"
+    matcher             = "200"
+    interval            = 30
+    timeout             = 5
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
   }
 }
 
