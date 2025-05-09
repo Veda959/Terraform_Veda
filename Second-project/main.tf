@@ -194,11 +194,11 @@ output "alb_dns_name" {
 
 output "app1_url" {
   description = "URL to access App1"
-  value       = "http://${aws_lb.myalb.dns_name}/app1"
+  value       = "http://${aws_lb.myalb.dns_name}/app1/"
 }
 
 output "app2_url" {
   description = "URL to access App2"
-  value       = "http://${aws_lb.myalb.dns_name}/app2"
+  value       = "http://${aws_lb.myalb.dns_name}/app2/"
 }
 
