@@ -21,6 +21,18 @@ Provision a scalable and highly available web server infrastructure in AWS using
 
 - S3 bucket to store files (e.g., demo file)
 
+# 📂 Project Structure
+
+```
+Terraform_Veda/
+├── main.tf              # All infrastructure resources
+├── variables.tf         # Input variable declarations
+├── providers.tf         # The region of the Infrastructure
+├── terraform.tfvars     # Values for input variables (optional)
+├── outputs.tf           # (Optional) Outputs like ALB DNS, instance IPs
+└── README.md            # Project documentation
+```
+
 # Basic Plan:
 
 ![image](https://github.com/user-attachments/assets/0bbb62ee-b495-4237-861d-45eaf5d60668)
@@ -150,17 +162,6 @@ terraform destroy
 
 - Ensure your AWS account has quota for EC2, ASG, NLB, etc.
 
-# 📂 Project Structure
-
-```
-Terraform_Veda/
-├── main.tf              # All infrastructure resources
-├── variables.tf         # Input variable declarations
-├── providers.tf         # The region of the Infrastructure
-├── terraform.tfvars     # Values for input variables (optional)
-├── outputs.tf           # (Optional) Outputs like ALB DNS, instance IPs
-└── README.md            # Project documentation
-```
 
 # 🚨 Clean Up
 To avoid AWS charges, destroy infrastructure after testing:
