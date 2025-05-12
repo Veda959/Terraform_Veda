@@ -69,7 +69,7 @@ resource "aws_security_group" "main" {
 # Create EC2 Instance
 resource "aws_instance" "main" {
   ami           = "var.ami_id"
-  instance_type = "t2-micro"
+  instance_type = "t2.micro"
   key_name      = "var.key_name"
   subnet_id     = aws_subnet.main.id
   security_groups = [aws_security_group.main.name]
