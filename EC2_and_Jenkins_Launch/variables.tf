@@ -9,7 +9,3 @@ variable "ami_id" {
 variable "key_name" {
   default = "terraform-key"
 }
-
-variable "instance_type" {
-  default = "t2.micro"
-}
