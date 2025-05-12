@@ -3,6 +3,7 @@ variable "aws_region" {
 }
 
 variable "ami_id" {
+  type = "String"
   default = "ami-0f88e80871fd81e91"
 }
 
