@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = var.aws_region  
 }
 
 # Create VPC
@@ -78,3 +78,4 @@ resource "aws_instance" "main" {
     Name = "MyTerraformEC2"
   }
 }
+
