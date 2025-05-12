@@ -68,9 +68,9 @@ resource "aws_security_group" "main" {
 
 # Create EC2 Instance
 resource "aws_instance" "main" {
-  ami           = "ami-0f88e80871fd81e91"
-  instance_type = "t2.micro"
-  key_name      = "terraform-key"
+  ami           = "var.ami_id"
+  instance_type = "var.instance_type"
+  key_name      = "var.key_name"
   subnet_id     = aws_subnet.main.id
   security_groups = [aws_security_group.main.name]
 
