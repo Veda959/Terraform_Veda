@@ -13,3 +13,15 @@ sudo yum upgrade
 
 #5. Install Java:
 sudo yum install java-17-amazon-corretto -y
+
+#6. Install Jenkins:
+sudo yum install jenkins -y
+
+#7. Enable the Jenkins service to start at boot:
+sudo systemctl enable jenkins
+
+#8. Start Jenkins as a service:
+sudo systemctl start jenkins
+
+#9. You can check the status of the Jenkins service using the command:
+sudo systemctl status jenkins
