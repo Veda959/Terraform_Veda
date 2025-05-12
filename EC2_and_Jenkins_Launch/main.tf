@@ -72,7 +72,7 @@ resource "aws_instance" "main" {
   instance_type = var.instance_type   
   key_name      = var.key_name        
   subnet_id     = aws_subnet.main.id
-  security_groups = [aws_security_group.main.name]
+  security_groups = [aws_security_group.main.id]
 
   tags = {
     Name = "MyTerraformEC2"
