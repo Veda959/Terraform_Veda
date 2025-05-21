@@ -3,11 +3,13 @@ variable "region" {
 }
 
 variable "source_bucket_name" {
-  default = "my-source-bucket-unique-name"
+  default = "default = "devops-user-source-bucket-2025"
+"
 }
 
 variable "destination_bucket_name" {
-  default = "my-destination-bucket-unique-name"
+  default = "default = "devops-user-destination-bucket-2025"
+"
 }
 
 variable "lambda_function_name" {
